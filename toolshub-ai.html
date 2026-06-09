@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>ToolsHub AI — ফ্রি অনলাইন টুলস</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<script src="https://pl29674829.effectivecpmnetwork.com/72/a0/3d/72a03d1b1541a816f6e12def40c58818.js"></script>
+<script src="https://pl29674827.effectivecpmnetwork.com/b0/49/af/b049af024284d8d0b8a70ce9258e94a3.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d0f14;--surface:#161a24;--card:#1e2436;--border:#2a3050;
+  --accent:#4f8ef7;--accent2:#7c3aed;--text:#e8eaf0;--muted:#8892aa;
+  --green:#22d3a0;--red:#f87171;--yellow:#fbbf24;--radius:14px;
+}
+body{background:var(--bg);color:var(--text);font-family:'Hind Siliguri',sans-serif;min-height:100vh;line-height:1.6}
+
+/* HEADER */
+header{background:var(--surface);border-bottom:1px solid var(--border);padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:58px;position:sticky;top:0;z-index:200}
+.logo{font-family:'Inter',sans-serif;font-size:1.3rem;font-weight:700;color:var(--accent)}.logo span{color:var(--accent2)}
+nav{display:flex;align-items:center;gap:4px}
+nav a{color:var(--muted);text-decoration:none;font-size:.85rem;padding:6px 12px;border-radius:8px;transition:all .2s}
+nav a:hover{color:var(--text);background:var(--card)}
+.nav-ai{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff!important;font-weight:600;cursor:pointer;border:none;font-family:'Hind Siliguri',sans-serif;font-size:.85rem;padding:6px 14px;border-radius:8px}
+
+/* HERO */
+.hero{text-align:center;padding:44px 20px 18px}
+.hero h1{font-size:clamp(1.5rem,4vw,2.5rem);font-weight:700;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
+.hero p{color:var(--muted);font-size:.92rem;max-width:460px;margin:0 auto}
+
+/* AD */
+.ad-wrap{max-width:728px;margin:14px auto;background:var(--surface);border:1px dashed var(--border);border-radius:var(--radius);padding:8px 10px;text-align:center;overflow:hidden;min-height:60px}
+.ad-label{font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;font-family:'Inter',sans-serif}
+
+/* LAYOUT */
+.wrapper{max-width:1160px;margin:0 auto;padding:0 16px 60px;display:grid;grid-template-columns:1fr 280px;gap:22px}
+@media(max-width:860px){.wrapper{grid-template-columns:1fr}}
+
+.sec{font-size:.7rem;font-family:'Inter',sans-serif;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:1.2px;margin:24px 0 10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:11px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 14px;cursor:pointer;transition:transform .2s,border-color .2s,box-shadow .2s}
+.card:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 8px 28px rgba(79,142,247,.15)}
+.card-icon{font-size:1.6rem;margin-bottom:7px}
+.card-name{font-size:.9rem;font-weight:600;margin-bottom:2px}
+.card-desc{font-size:.73rem;color:var(--muted);line-height:1.4}
+
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-top:18px;display:none}
+.panel.active{display:block;animation:fi .3s ease}
+@keyframes fi{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.ptitle{font-size:1rem;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+
+textarea,input[type=text],input[type=number],select{width:100%;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:9px 12px;font-family:'Hind Siliguri',sans-serif;font-size:.86rem;resize:vertical;outline:none;transition:border-color .2s}
+textarea:focus,input:focus,select:focus{border-color:var(--accent)}
+.btn{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none;border-radius:8px;padding:9px 18px;font-family:'Hind Siliguri',sans-serif;font-size:.86rem;font-weight:600;cursor:pointer;transition:opacity .2s,transform .1s;margin-top:10px}
+.btn:hover{opacity:.9;transform:scale(1.02)}
+.btn-o{background:transparent;border:1px solid var(--accent);color:var(--accent)}
+.bsm{padding:6px 12px;font-size:.76rem;margin-top:0}
+.rbox{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px;margin-top:10px;min-height:48px;font-size:.86rem;word-break:break-all;line-height:1.7}
+.rl{font-size:.68rem;color:var(--muted);font-family:'Inter',sans-serif;margin-bottom:3px}
+.row{display:flex;gap:9px;flex-wrap:wrap;margin-top:9px}
+.col{flex:1;min-width:110px}
+.badge{display:inline-block;padding:2px 8px;border-radius:99px;font-size:.68rem;font-family:'Inter',sans-serif;font-weight:600}
+.bg{background:rgba(34,211,160,.15);color:var(--green)}.by{background:rgba(251,191,36,.15);color:var(--yellow)}.br{background:rgba(248,113,113,.15);color:var(--red)}
+
+/* SIDEBAR */
+.sidebar{display:flex;flex-direction:column;gap:14px}
+.sc{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px}
+.st{font-size:.7rem;font-family:'Inter',sans-serif;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
+.clock{font-family:'Inter',sans-serif;font-size:1.8rem;font-weight:700;color:var(--accent);text-align:center;letter-spacing:2px}
+.date{text-align:center;color:var(--muted);font-size:.76rem;margin-top:2px}
+input[type=range]{width:100%;accent-color:var(--accent);margin:5px 0}
+
+/* TOAST */
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(14px);background:var(--green);color:#000;font-weight:700;padding:8px 20px;border-radius:99px;font-size:.82rem;opacity:0;transition:all .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ===== AI CHAT ===== */
+.ai-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:300;display:none;align-items:flex-end;justify-content:flex-end;padding:20px}
+.ai-overlay.open{display:flex}
+.ai-box{background:var(--surface);border:1px solid var(--border);border-radius:18px;width:100%;max-width:420px;height:580px;display:flex;flex-direction:column;box-shadow:0 24px 80px rgba(0,0,0,.5);animation:slideUp .3s ease}
+@keyframes slideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.ai-head{padding:16px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.ai-head-left{display:flex;align-items:center;gap:10px}
+.ai-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.ai-name{font-weight:700;font-size:.95rem}
+.ai-status{font-size:.72rem;color:var(--green);display:flex;align-items:center;gap:4px}
+.ai-status::before{content:'';width:6px;height:6px;background:var(--green);border-radius:50%;display:inline-block}
+.ai-close{background:none;border:none;color:var(--muted);font-size:1.3rem;cursor:pointer;padding:4px;border-radius:6px;transition:color .2s}
+.ai-close:hover{color:var(--text)}
+.ai-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth}
+.ai-msgs::-webkit-scrollbar{width:4px}
+.ai-msgs::-webkit-scrollbar-track{background:transparent}
+.ai-msgs::-webkit-scrollbar-thumb{background:var(--border);border-radius:99px}
+.msg{max-width:85%;padding:10px 13px;border-radius:14px;font-size:.84rem;line-height:1.55;animation:msgIn .2s ease}
+@keyframes msgIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.msg-user{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+.msg-ai{background:var(--card);border:1px solid var(--border);color:var(--text);align-self:flex-start;border-bottom-left-radius:4px}
+.msg-ai p{margin-bottom:6px}.msg-ai p:last-child{margin-bottom:0}
+.msg-ai strong{color:var(--accent);font-weight:600}
+.msg-ai code{background:rgba(79,142,247,.1);padding:1px 5px;border-radius:4px;font-family:monospace;font-size:.82rem}
+.typing{display:flex;gap:4px;align-items:center;padding:12px 16px}
+.typing span{width:7px;height:7px;background:var(--muted);border-radius:50%;animation:bounce 1.2s infinite}
+.typing span:nth-child(2){animation-delay:.2s}
+.typing span:nth-child(3){animation-delay:.4s}
+@keyframes bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
+.ai-input-area{padding:12px 14px;border-top:1px solid var(--border);display:flex;gap:8px;align-items:flex-end}
+.ai-input{flex:1;background:var(--card);border:1px solid var(--border);border-radius:10px;color:var(--text);padding:9px 12px;font-family:'Hind Siliguri',sans-serif;font-size:.84rem;resize:none;outline:none;max-height:100px;transition:border-color .2s}
+.ai-input:focus{border-color:var(--accent)}
+.ai-send{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none;border-radius:10px;width:38px;height:38px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:opacity .2s;flex-shrink:0}
+.ai-send:hover{opacity:.85}
+.ai-send:disabled{opacity:.4;cursor:not-allowed}
+
+/* FAB */
+.fab{position:fixed;bottom:24px;right:24px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none;border-radius:50%;width:56px;height:56px;font-size:1.4rem;cursor:pointer;box-shadow:0 8px 24px rgba(79,142,247,.4);z-index:299;transition:transform .2s,box-shadow .2s;display:flex;align-items:center;justify-content:center}
+.fab:hover{transform:scale(1.08);box-shadow:0 12px 32px rgba(79,142,247,.5)}
+.fab-badge{position:absolute;top:-2px;right:-2px;background:var(--red);color:#fff;border-radius:99px;font-size:.6rem;font-family:'Inter',sans-serif;font-weight:700;padding:1px 5px;min-width:16px;text-align:center}
+
+/* QUICK CHIPS */
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chip{background:var(--card);border:1px solid var(--border);color:var(--muted);border-radius:99px;padding:4px 11px;font-size:.74rem;cursor:pointer;transition:all .2s;font-family:'Hind Siliguri',sans-serif}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+
+footer{text-align:center;padding:24px 20px;border-top:1px solid var(--border);color:var(--muted);font-size:.76rem}
+</style>
+</head>
+<body>
+
+<div id="toast" class="toast">✓ কপি হয়েছে!</div>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">Tools<span>Hub</span> <span style="font-size:.7rem;color:var(--green);font-family:'Inter',sans-serif;font-weight:600;margin-left:4px">AI</span></div>
+  <nav>
+    <a href="#">হোম</a>
+    <a href="#">টুলস</a>
+    <button class="nav-ai" onclick="toggleAI()">🤖 AI চ্যাট</button>
+  </nav>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>ফ্রি অনলাইন টুলস + AI</h1>
+  <p>পাসওয়ার্ড, ক্যালকুলেটর, কনভার্টার — এবং এখন AI সহায়তা, সম্পূর্ণ বিনামূল্যে।</p>
+</div>
+
+<!-- AD TOP -->
+<div class="ad-wrap">
+  <div class="ad-label">Advertisement</div>
+  <script async="async" data-cfasync="false" src="https://pl29674828.effectivecpmnetwork.com/001dd961791b28531dfc395ef3a22ba7/invoke.js"></script>
+  <div id="container-001dd961791b28531dfc395ef3a22ba7"></div>
+</div>
+
+<!-- WRAPPER -->
+<div class="wrapper">
+<div>
+
+<div class="sec">📝 টেক্সট টুলস</div>
+<div class="grid">
+  <div class="card" onclick="open_('wordcount')"><div class="card-icon">📊</div><div class="card-name">ওয়ার্ড কাউন্টার</div><div class="card-desc">শব্দ, অক্ষর ও লাইন গণনা</div></div>
+  <div class="card" onclick="open_('caseconv')"><div class="card-icon">🔤</div><div class="card-name">কেস কনভার্টার</div><div class="card-desc">UPPER / lower / Title Case</div></div>
+  <div class="card" onclick="open_('reverse')"><div class="card-icon">🔄</div><div class="card-name">টেক্সট রিভার্স</div><div class="card-desc">লেখা উল্টো করুন</div></div>
+  <div class="card" onclick="open_('dedup')"><div class="card-icon">🧹</div><div class="card-name">ডুপ্লিকেট রিমুভার</div><div class="card-desc">একই লাইন মুছে ফেলুন</div></div>
+</div>
+
+<div class="sec">🔢 ক্যালকুলেটর ও কনভার্টার</div>
+<div class="grid">
+  <div class="card" onclick="open_('bmi')"><div class="card-icon">⚖️</div><div class="card-name">BMI ক্যালকুলেটর</div><div class="card-desc">উচ্চতা ও ওজন দিয়ে BMI</div></div>
+  <div class="card" onclick="open_('age')"><div class="card-icon">🎂</div><div class="card-name">বয়স ক্যালকুলেটর</div><div class="card-desc">জন্মতারিখ থেকে বয়স</div></div>
+  <div class="card" onclick="open_('unit')"><div class="card-icon">📏</div><div class="card-name">ইউনিট কনভার্টার</div><div class="card-desc">km, mile, kg, lb, °C, °F</div></div>
+  <div class="card" onclick="open_('pct')"><div class="card-icon">💯</div><div class="card-name">পার্সেন্টেজ</div><div class="card-desc">শতাংশ বের করুন</div></div>
+</div>
+
+<div class="sec">🔐 সিকিউরিটি ও এনকোডিং</div>
+<div class="grid">
+  <div class="card" onclick="open_('passgen')"><div class="card-icon">🔑</div><div class="card-name">পাসওয়ার্ড জেনারেটর</div><div class="card-desc">শক্তিশালী পাসওয়ার্ড তৈরি</div></div>
+  <div class="card" onclick="open_('base64')"><div class="card-icon">🔒</div><div class="card-name">Base64 Encode/Decode</div><div class="card-desc">টেক্সট এনকোড বা ডিকোড</div></div>
+  <div class="card" onclick="open_('color')"><div class="card-icon">🎨</div><div class="card-name">কালার কনভার্টার</div><div class="card-desc">HEX ↔ RGB রঙ কনভার্ট</div></div>
+  <div class="card" onclick="open_('lorem')"><div class="card-icon">📄</div><div class="card-name">Lorem Ipsum</div><div class="card-desc">ডামি টেক্সট জেনারেট</div></div>
+</div>
+
+<!-- PANELS -->
+<div class="panel" id="p-wordcount">
+  <div class="ptitle">📊 ওয়ার্ড কাউন্টার</div>
+  <textarea id="wc" rows="6" placeholder="এখানে আপনার লেখা পেস্ট করুন..." oninput="countW()"></textarea>
+  <div class="row" style="margin-top:12px">
+    <div class="col sc" style="text-align:center;padding:12px"><div class="rl">শব্দ</div><div style="font-size:1.9rem;font-weight:700;color:var(--accent)" id="ww">0</div></div>
+    <div class="col sc" style="text-align:center;padding:12px"><div class="rl">অক্ষর</div><div style="font-size:1.9rem;font-weight:700;color:var(--accent2)" id="wc2">0</div></div>
+    <div class="col sc" style="text-align:center;padding:12px"><div class="rl">লাইন</div><div style="font-size:1.9rem;font-weight:700;color:var(--green)" id="wl">0</div></div>
+  </div>
+</div>
+
+<div class="panel" id="p-caseconv">
+  <div class="ptitle">🔤 কেস কনভার্টার</div>
+  <textarea id="cc" rows="5" placeholder="লেখা টাইপ করুন..."></textarea>
+  <div class="row">
+    <button class="btn bsm" onclick="cconv('u')">UPPERCASE</button>
+    <button class="btn bsm btn-o" onclick="cconv('l')">lowercase</button>
+    <button class="btn bsm" onclick="cconv('t')">Title Case</button>
+    <button class="btn bsm btn-o" onclick="cconv('s')">Sentence</button>
+  </div>
+  <div class="rl" style="margin-top:10px">ফলাফল</div>
+  <div class="rbox" id="cc-out">এখানে রেজাল্ট দেখাবে...</div>
+  <button class="btn bsm btn-o" style="margin-top:7px" onclick="cp('cc-out')">📋 কপি</button>
+</div>
+
+<div class="panel" id="p-reverse">
+  <div class="ptitle">🔄 টেক্সট রিভার্স</div>
+  <textarea id="tr" rows="5" placeholder="লেখা লিখুন..."></textarea>
+  <button class="btn" onclick="rev()">উল্টো করুন</button>
+  <div class="rl" style="margin-top:10px">উল্টো লেখা</div>
+  <div class="rbox" id="tr-out"></div>
+  <button class="btn bsm btn-o" style="margin-top:7px" onclick="cp('tr-out')">📋 কপি</button>
+</div>
+
+<div class="panel" id="p-dedup">
+  <div class="ptitle">🧹 ডুপ্লিকেট রিমুভার</div>
+  <textarea id="dd" rows="6" placeholder="প্রতি লাইনে একটি করে আইটেম লিখুন..."></textarea>
+  <button class="btn" onclick="dedup()">ডুপ্লিকেট মুছুন</button>
+  <div class="rl" style="margin-top:10px">ফলাফল</div>
+  <div class="rbox" id="dd-out"></div>
+  <button class="btn bsm btn-o" style="margin-top:7px" onclick="cp('dd-out')">📋 কপি</button>
+</div>
+
+<div class="panel" id="p-bmi">
+  <div class="ptitle">⚖️ BMI ক্যালকুলেটর</div>
+  <div class="row">
+    <div class="col"><div class="rl">উচ্চতা (সেমি)</div><input type="number" id="bh" placeholder="যেমন: 170"></div>
+    <div class="col"><div class="rl">ওজন (কেজি)</div><input type="number" id="bw" placeholder="যেমন: 65"></div>
+  </div>
+  <button class="btn" onclick="bmi()">BMI বের করুন</button>
+  <div class="rbox" id="bmi-r" style="margin-top:10px"></div>
+</div>
+
+<div class="panel" id="p-age">
+  <div class="ptitle">🎂 বয়স ক্যালকুলেটর</div>
+  <div class="rl">জন্মতারিখ</div>
+  <input type="text" id="ag" placeholder="YYYY-MM-DD (যেমন: 1998-05-15)">
+  <button class="btn" onclick="ageCalc()">বয়স বের করুন</button>
+  <div class="rbox" id="age-r" style="margin-top:10px"></div>
+</div>
+
+<div class="panel" id="p-unit">
+  <div class="ptitle">📏 ইউনিট কনভার্টার</div>
+  <select id="ut">
+    <option value="km-mi">কিলোমিটার → মাইল</option>
+    <option value="mi-km">মাইল → কিলোমিটার</option>
+    <option value="kg-lb">কেজি → পাউন্ড</option>
+    <option value="lb-kg">পাউন্ড → কেজি</option>
+    <option value="c-f">°সেলসিয়াস → °ফারেনহাইট</option>
+    <option value="f-c">°ফারেনহাইট → °সেলসিয়াস</option>
+    <option value="m-ft">মিটার → ফুট</option>
+    <option value="ft-m">ফুট → মিটার</option>
+  </select>
+  <input type="number" id="uv" placeholder="মান লিখুন" style="margin-top:9px">
+  <button class="btn" onclick="unitConv()">কনভার্ট করুন</button>
+  <div class="rbox" id="unit-r" style="margin-top:10px"></div>
+</div>
+
+<div class="panel" id="p-pct">
+  <div class="ptitle">💯 পার্সেন্টেজ ক্যালকুলেটর</div>
+  <div class="row">
+    <div class="col"><div class="rl">মোট মান</div><input type="number" id="pt" placeholder="যেমন: 500"></div>
+    <div class="col"><div class="rl">পরিমাণ</div><input type="number" id="pv2" placeholder="যেমন: 75"></div>
+  </div>
+  <button class="btn" onclick="pct()">% বের করুন</button>
+  <div class="rbox" id="pct-r" style="margin-top:10px"></div>
+</div>
+
+<div class="panel" id="p-passgen">
+  <div class="ptitle">🔑 পাসওয়ার্ড জেনারেটর</div>
+  <div class="rl">দৈর্ঘ্য: <span id="pl-lbl">16</span></div>
+  <input type="range" min="8" max="64" value="16" id="pl" oninput="document.getElementById('pl-lbl').textContent=this.value">
+  <div class="row" style="gap:12px;margin:5px 0">
+    <label style="display:flex;align-items:center;gap:5px;font-size:.82rem;cursor:pointer"><input type="checkbox" id="pu" checked> A-Z</label>
+    <label style="display:flex;align-items:center;gap:5px;font-size:.82rem;cursor:pointer"><input type="checkbox" id="po" checked> a-z</label>
+    <label style="display:flex;align-items:center;gap:5px;font-size:.82rem;cursor:pointer"><input type="checkbox" id="pn" checked> 0-9</label>
+    <label style="display:flex;align-items:center;gap:5px;font-size:.82rem;cursor:pointer"><input type="checkbox" id="ps"> !@#$</label>
+  </div>
+  <button class="btn" onclick="passGen()">পাসওয়ার্ড তৈরি করুন</button>
+  <div class="rbox" id="pass-r" style="font-family:monospace;font-size:.98rem;letter-spacing:1px"></div>
+  <div id="pass-s" style="margin-top:5px"></div>
+  <button class="btn bsm btn-o" style="margin-top:7px" onclick="cp('pass-r')">📋 কপি</button>
+</div>
+
+<div class="panel" id="p-base64">
+  <div class="ptitle">🔒 Base64 Encode / Decode</div>
+  <textarea id="b6" rows="4" placeholder="টেক্সট লিখুন..."></textarea>
+  <div class="row">
+    <button class="btn bsm" onclick="b64e()">Encode করুন</button>
+    <button class="btn bsm btn-o" onclick="b64d()">Decode করুন</button>
+  </div>
+  <div class="rl" style="margin-top:10px">ফলাফল</div>
+  <div class="rbox" id="b6-out"></div>
+  <button class="btn bsm btn-o" style="margin-top:7px" onclick="cp('b6-out')">📋 কপি</button>
+</div>
+
+<div class="panel" id="p-color">
+  <div class="ptitle">🎨 কালার কনভার্টার (HEX ↔ RGB)</div>
+  <div class="rl">HEX কোড</div>
+  <div style="display:flex;gap:9px;align-items:center">
+    <input type="text" id="hx" placeholder="#4f8ef7" style="flex:1">
+    <input type="color" id="cpk" onchange="pickC()" style="width:44px;height:36px;border-radius:8px;border:none;cursor:pointer">
+  </div>
+  <button class="btn" onclick="colConv()">কনভার্ট করুন</button>
+  <div class="rbox" id="col-r" style="margin-top:10px"></div>
+  <div id="col-prev" style="height:50px;border-radius:8px;margin-top:7px;transition:background .3s;border:1px solid var(--border)"></div>
+</div>
+
+<div class="panel" id="p-lorem">
+  <div class="ptitle">📄 Lorem Ipsum জেনারেটর</div>
+  <div class="rl">প্যারাগ্রাফ সংখ্যা</div>
+  <input type="number" id="li" value="3" min="1" max="10">
+  <button class="btn" onclick="lorem()">টেক্সট তৈরি করুন</button>
+  <div class="rbox" id="li-out" style="max-height:200px;overflow-y:auto;margin-top:10px"></div>
+  <button class="btn bsm btn-o" style="margin-top:7px" onclick="cp('li-out')">📋 কপি</button>
+</div>
+
+</div><!-- END LEFT -->
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <div class="sc">
+    <div class="st">⏰ লাইভ ক্লক</div>
+    <div class="clock" id="clk">00:00:00</div>
+    <div class="date" id="dt"></div>
+  </div>
+
+  <div class="sc" style="padding:10px;text-align:center">
+    <div class="ad-label" style="margin-bottom:5px">Advertisement</div>
+    <script async="async" data-cfasync="false" src="https://pl29674828.effectivecpmnetwork.com/001dd961791b28531dfc395ef3a22ba7/invoke.js"></script>
+    <div id="container-001dd961791b28531dfc395ef3a22ba7-2"></div>
+  </div>
+
+  <!-- AI QUICK ACCESS -->
+  <div class="sc" style="background:linear-gradient(135deg,rgba(79,142,247,.08),rgba(124,58,237,.08));border-color:var(--accent)">
+    <div class="st" style="color:var(--accent)">🤖 AI সহায়তা</div>
+    <p style="font-size:.8rem;color:var(--muted);margin-bottom:10px">যেকোনো প্রশ্ন করুন, বাংলায় উত্তর পাবেন।</p>
+    <button class="btn" style="width:100%;margin-top:0" onclick="toggleAI()">চ্যাট শুরু করুন →</button>
+    <div class="chips" style="margin-top:8px">
+      <span class="chip" onclick="quickAsk('BMI কি স্বাভাবিক?')">BMI কি?</span>
+      <span class="chip" onclick="quickAsk('ভালো পাসওয়ার্ড কেমন হয়?')">পাসওয়ার্ড টিপস</span>
+      <span class="chip" onclick="quickAsk('Base64 কি?')">Base64 কি?</span>
+    </div>
+  </div>
+
+  <div class="sc">
+    <div class="st">💡 টিপস</div>
+    <ul style="list-style:none;display:flex;flex-direction:column;gap:8px">
+      <li style="font-size:.78rem;color:var(--muted);border-left:2px solid var(--accent);padding-left:9px">পাসওয়ার্ড সবসময় ১২+ অক্ষরের রাখুন।</li>
+      <li style="font-size:.78rem;color:var(--muted);border-left:2px solid var(--accent2);padding-left:9px">BMI ১৮.৫–২৪.৯ হলে স্বাভাবিক।</li>
+      <li style="font-size:.78rem;color:var(--muted);border-left:2px solid var(--green);padding-left:9px">Base64 ডেটা ট্রান্সফারে ব্যবহৃত হয়।</li>
+    </ul>
+  </div>
+</div>
+
+</div><!-- END WRAPPER -->
+
+<!-- AD FOOTER -->
+<div class="ad-wrap" style="margin-bottom:14px">
+  <div class="ad-label">Advertisement</div>
+  <script async="async" data-cfasync="false" src="https://pl29674828.effectivecpmnetwork.com/001dd961791b28531dfc395ef3a22ba7/invoke.js"></script>
+  <div id="container-001dd961791b28531dfc395ef3a22ba7-3"></div>
+</div>
+
+<footer>&copy; 2025 ToolsHub AI — সম্পূর্ণ বিনামূল্যে অনলাইন টুলস ও AI সহায়তা</footer>
+
+<!-- ===== AI CHAT OVERLAY ===== -->
+<div class="ai-overlay" id="aiOverlay" onclick="overlayClose(event)">
+  <div class="ai-box">
+    <div class="ai-head">
+      <div class="ai-head-left">
+        <div class="ai-avatar">🤖</div>
+        <div>
+          <div class="ai-name">ToolsHub AI</div>
+          <div class="ai-status" id="aiStatus">অনলাইন</div>
+        </div>
+      </div>
+      <button class="ai-close" onclick="toggleAI()">✕</button>
+    </div>
+    <div class="ai-msgs" id="aiMsgs">
+      <div class="msg msg-ai">
+        👋 আস্সালামু আলাইকুম! আমি ToolsHub AI।<br><br>
+        আপনি যেকোনো প্রশ্ন করতে পারেন — বাংলায় বা ইংরেজিতে। আমি সাহায্য করতে প্রস্তুত! 😊
+      </div>
+      <div class="chips" style="margin-left:4px">
+        <span class="chip" onclick="quickAsk('পাসওয়ার্ড কতটা শক্তিশালী হওয়া দরকার?')">🔑 পাসওয়ার্ড</span>
+        <span class="chip" onclick="quickAsk('BMI 25 হলে কি করা উচিত?')">⚖️ BMI</span>
+        <span class="chip" onclick="quickAsk('একটি সুন্দর কবিতা লেখো')">✍️ কবিতা</span>
+        <span class="chip" onclick="quickAsk('আজকের আবহাওয়া কেমন?')">🌤️ আবহাওয়া</span>
+      </div>
+    </div>
+    <div class="ai-input-area">
+      <textarea class="ai-input" id="aiInput" placeholder="বাংলায় বা ইংরেজিতে লিখুন..." rows="1"
+        onkeydown="aiKey(event)" oninput="autoResize(this)"></textarea>
+      <button class="ai-send" id="aiSendBtn" onclick="aiSend()">➤</button>
+    </div>
+  </div>
+</div>
+
+<!-- FAB -->
+<button class="fab" onclick="toggleAI()" id="fab">
+  🤖
+  <span class="fab-badge" id="fabBadge" style="display:none">!</span>
+</button>
+
+<script>
+// ===== CONFIG =====
+const API_KEY = '6913b3f35e82f7da0d23536b5d9a81a8';
+const MODEL = 'claude-sonnet-4-20250514';
+let chatHistory = [];
+let isTyping = false;
+
+// ===== AI CHAT =====
+function toggleAI(){
+  var o=document.getElementById('aiOverlay');
+  o.classList.toggle('open');
+  if(o.classList.contains('open')){
+    document.getElementById('fabBadge').style.display='none';
+    setTimeout(()=>document.getElementById('aiInput').focus(),300);
+  }
+}
+function overlayClose(e){
+  if(e.target===document.getElementById('aiOverlay')) toggleAI();
+}
+function autoResize(el){
+  el.style.height='auto';
+  el.style.height=Math.min(el.scrollHeight,100)+'px';
+}
+function aiKey(e){
+  if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();aiSend();}
+}
+function quickAsk(q){
+  document.getElementById('aiOverlay').classList.add('open');
+  document.getElementById('fabBadge').style.display='none';
+  document.getElementById('aiInput').value=q;
+  aiSend();
+}
+function addMsg(text,role){
+  var msgs=document.getElementById('aiMsgs');
+  var div=document.createElement('div');
+  div.className='msg msg-'+role;
+  if(role==='ai'){
+    // simple markdown: **bold**, `code`, newlines
+    var html=text
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+      .replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')
+      .replace(/`([^`]+)`/g,'<code>$1</code>')
+      .replace(/\n/g,'<br>');
+    div.innerHTML=html;
+  } else {
+    div.textContent=text;
+  }
+  msgs.appendChild(div);
+  msgs.scrollTop=msgs.scrollHeight;
+  return div;
+}
+function showTyping(){
+  var msgs=document.getElementById('aiMsgs');
+  var div=document.createElement('div');
+  div.className='msg msg-ai typing';
+  div.id='typingIndicator';
+  div.innerHTML='<span></span><span></span><span></span>';
+  msgs.appendChild(div);
+  msgs.scrollTop=msgs.scrollHeight;
+}
+function removeTyping(){
+  var t=document.getElementById('typingIndicator');
+  if(t) t.remove();
+}
+async function aiSend(){
+  if(isTyping) return;
+  var inp=document.getElementById('aiInput');
+  var msg=inp.value.trim();
+  if(!msg) return;
+  inp.value='';inp.style.height='auto';
+  addMsg(msg,'user');
+  chatHistory.push({role:'user',content:msg});
+  isTyping=true;
+  document.getElementById('aiSendBtn').disabled=true;
+  document.getElementById('aiStatus').textContent='টাইপ করছে...';
+  showTyping();
+  try{
+    var resp=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+        'x-api-key':API_KEY,
+        'anthropic-version':'2023-06-01',
+        'anthropic-dangerous-direct-browser-access':'true'
+      },
+      body:JSON.stringify({
+        model:MODEL,
+        max_tokens:1024,
+        system:'তুমি ToolsHub AI — একটি বাংলাদেশি ওয়েবসাইটের AI সহায়তাকারী। তুমি সবসময় বাংলায় উত্তর দেবে (যদিও প্রশ্ন ইংরেজিতে হয়)। তুমি সহায়ক, বন্ধুত্বপূর্ণ এবং সংক্ষিপ্ত উত্তর দাও। ToolsHub-এর টুলগুলো হলো: ওয়ার্ড কাউন্টার, কেস কনভার্টার, BMI ক্যালকুলেটর, বয়স ক্যালকুলেটর, ইউনিট কনভার্টার, পাসওয়ার্ড জেনারেটর, Base64, কালার কনভার্টার, Lorem Ipsum।',
+        messages:chatHistory.slice(-12)
+      })
+    });
+    var data=await resp.json();
+    removeTyping();
+    if(data.content&&data.content[0]){
+      var reply=data.content[0].text;
+      chatHistory.push({role:'assistant',content:reply});
+      addMsg(reply,'ai');
+    } else if(data.error){
+      addMsg('⚠️ সমস্যা হয়েছে: '+data.error.message,'ai');
+    }
+  } catch(err){
+    removeTyping();
+    addMsg('⚠️ সংযোগ সমস্যা। ইন্টারনেট চেক করুন।','ai');
+  }
+  isTyping=false;
+  document.getElementById('aiSendBtn').disabled=false;
+  document.getElementById('aiStatus').textContent='অনলাইন';
+}
+
+// ===== TOOLS =====
+function open_(id){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  var el=document.getElementById('p-'+id);
+  el.classList.add('active');
+  setTimeout(()=>el.scrollIntoView({behavior:'smooth',block:'nearest'}),50);
+}
+function cp(id){
+  navigator.clipboard.writeText(document.getElementById(id).textContent).then(()=>{
+    var x=document.getElementById('toast');x.classList.add('show');
+    setTimeout(()=>x.classList.remove('show'),2000);
+  });
+}
+function countW(){
+  var t=document.getElementById('wc').value;
+  document.getElementById('ww').textContent=t.trim()?t.trim().split(/\s+/).length:0;
+  document.getElementById('wc2').textContent=t.length;
+  document.getElementById('wl').textContent=t?t.split('\n').length:0;
+}
+function cconv(type){
+  var t=document.getElementById('cc').value,o=t;
+  if(type==='u')o=t.toUpperCase();
+  else if(type==='l')o=t.toLowerCase();
+  else if(type==='t')o=t.replace(/\w\S*/g,w=>w.charAt(0).toUpperCase()+w.slice(1).toLowerCase());
+  else if(type==='s')o=t.charAt(0).toUpperCase()+t.slice(1).toLowerCase();
+  document.getElementById('cc-out').textContent=o;
+}
+function rev(){document.getElementById('tr-out').textContent=document.getElementById('tr').value.split('').reverse().join('');}
+function dedup(){
+  var lines=document.getElementById('dd').value.split('\n');
+  document.getElementById('dd-out').textContent=[...new Set(lines.map(l=>l.trim()).filter(Boolean))].join('\n');
+}
+function bmi(){
+  var h=parseFloat(document.getElementById('bh').value)/100,w=parseFloat(document.getElementById('bw').value);
+  if(!h||!w){document.getElementById('bmi-r').textContent='সঠিক মান দিন।';return;}
+  var b=(w/(h*h)).toFixed(1),cat,cls;
+  if(b<18.5){cat='কম ওজন';cls='by';}else if(b<25){cat='স্বাভাবিক';cls='bg';}else if(b<30){cat='অতিরিক্ত ওজন';cls='by';}else{cat='স্থূলতা';cls='br';}
+  document.getElementById('bmi-r').innerHTML='BMI: <strong style="font-size:1.4rem;color:var(--accent)">'+b+'</strong> &nbsp;<span class="badge '+cls+'">'+cat+'</span>';
+}
+function ageCalc(){
+  var d=new Date(document.getElementById('ag').value);
+  if(isNaN(d)){document.getElementById('age-r').textContent='সঠিক তারিখ দিন (YYYY-MM-DD)';return;}
+  var n=new Date(),y=n.getFullYear()-d.getFullYear(),m=n.getMonth()-d.getMonth(),dy=n.getDate()-d.getDate();
+  if(dy<0){m--;dy+=new Date(n.getFullYear(),n.getMonth(),0).getDate();}
+  if(m<0){y--;m+=12;}
+  document.getElementById('age-r').innerHTML='বয়স: <strong style="color:var(--accent)">'+y+' বছর, '+m+' মাস, '+dy+' দিন</strong>';
+}
+function unitConv(){
+  var tp=document.getElementById('ut').value,v=parseFloat(document.getElementById('uv').value);
+  if(isNaN(v)){document.getElementById('unit-r').textContent='সংখ্যা দিন';return;}
+  var map={'km-mi':[v=>v*.621371,'মাইল'],'mi-km':[v=>v*1.60934,'কিলোমিটার'],'kg-lb':[v=>v*2.20462,'পাউন্ড'],'lb-kg':[v=>v/2.20462,'কেজি'],'c-f':[v=>v*9/5+32,'°ফারেনহাইট'],'f-c':[v=>(v-32)*5/9,'°সেলসিয়াস'],'m-ft':[v=>v*3.28084,'ফুট'],'ft-m':[v=>v/3.28084,'মিটার']};
+  var r=map[tp];document.getElementById('unit-r').textContent='= '+r[0](v).toFixed(4)+' '+r[1];
+}
+function pct(){
+  var t=parseFloat(document.getElementById('pt').value),v=parseFloat(document.getElementById('pv2').value);
+  if(isNaN(t)||isNaN(v)||t===0){document.getElementById('pct-r').textContent='সঠিক মান দিন';return;}
+  document.getElementById('pct-r').innerHTML='<strong style="color:var(--accent);font-size:1.4rem">'+(v/t*100).toFixed(2)+'%</strong>';
+}
+function passGen(){
+  var len=parseInt(document.getElementById('pl').value),chars='';
+  if(document.getElementById('pu').checked)chars+='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  if(document.getElementById('po').checked)chars+='abcdefghijklmnopqrstuvwxyz';
+  if(document.getElementById('pn').checked)chars+='0123456789';
+  if(document.getElementById('ps').checked)chars+='!@#$%^&*()_+-=[]{}|;:,.<>?';
+  if(!chars){document.getElementById('pass-r').textContent='কমপক্ষে একটি অপশন বেছে নিন।';return;}
+  var pw='';for(var i=0;i<len;i++)pw+=chars[Math.floor(Math.random()*chars.length)];
+  document.getElementById('pass-r').textContent=pw;
+  var sc=[chars.includes('A'),chars.includes('a'),chars.includes('0'),chars.includes('!')].filter(Boolean).length;
+  var lbs=['দুর্বল','মাঝারি','ভালো','শক্তিশালী'],cls=['br','by','bg','bg'];
+  document.getElementById('pass-s').innerHTML='<span class="badge '+cls[sc-1]+'">শক্তি: '+lbs[sc-1]+'</span>';
+}
+function b64e(){try{document.getElementById('b6-out').textContent=btoa(unescape(encodeURIComponent(document.getElementById('b6').value)));}catch(e){document.getElementById('b6-out').textContent='এনকোড করতে সমস্যা হয়েছে।';}}
+function b64d(){try{document.getElementById('b6-out').textContent=decodeURIComponent(escape(atob(document.getElementById('b6').value)));}catch(e){document.getElementById('b6-out').textContent='ডিকোড করতে সমস্যা হয়েছে।';}}
+function pickC(){document.getElementById('hx').value=document.getElementById('cpk').value;colConv();}
+function colConv(){
+  var h=document.getElementById('hx').value.trim().replace('#','');
+  if(h.length===3)h=h.split('').map(c=>c+c).join('');
+  if(!/^[0-9a-fA-F]{6}$/.test(h)){document.getElementById('col-r').textContent='সঠিক HEX কোড দিন';return;}
+  var r=parseInt(h.substring(0,2),16),g=parseInt(h.substring(2,4),16),b=parseInt(h.substring(4,6),16);
+  document.getElementById('col-r').innerHTML='HEX: <strong>#'+h.toUpperCase()+'</strong><br>RGB: <strong>rgb('+r+', '+g+', '+b+')</strong>';
+  document.getElementById('col-prev').style.background='#'+h;
+  document.getElementById('cpk').value='#'+h;
+}
+var LT="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+function lorem(){
+  var n=Math.min(10,Math.max(1,parseInt(document.getElementById('li').value)||3));
+  document.getElementById('li-out').textContent=Array.from({length:n},()=>LT).join('\n\n');
+}
+function clkUpdate(){
+  var n=new Date();
+  document.getElementById('clk').textContent=n.toLocaleTimeString('bn-BD');
+  document.getElementById('dt').textContent=n.toLocaleDateString('bn-BD',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+}
+setInterval(clkUpdate,1000);clkUpdate();
+</script>
+</body>
+</html>
